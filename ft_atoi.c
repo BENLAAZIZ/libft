@@ -6,19 +6,17 @@
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:05:22 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/11/15 19:08:45 by hben-laz         ###   ########.fr       */
+/*   Updated: 2023/11/16 19:39:27 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
 int	ft_atoi(const char *str)
 {
-	int		i;
-	long	f;
-	int		s;
+	int				i;
+    unsigned long	f;
+	int				s;
 
 	i = 0;
 	f = 0;
@@ -35,17 +33,11 @@ int	ft_atoi(const char *str)
 	while (*(str + i) >= '0' && *(str + i) <= '9')
 	{
 		f = (f * 10) + (*(str + i)) - '0';
+			if (f >= 9223372036854775807 && s == 1 )
+				return (-1);
+			if (f > 9223372036854775807 && s == -1)
+				return (0);
 		i++;
 	}
-	if (f > 9223372036854775807)
-		return (-1);
-	if (f < -9223372036854775808)
-		return (0);
-	return (f * s);
-}
-int main()
-{
-	printf("%d\n", ft_atoi("5525576425735543635583643558656"));
-	printf("%d", atoi("5525576425735543635583643558656"));
-	return 0;
+	return ((int)f * s);
 }

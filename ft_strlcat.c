@@ -6,13 +6,11 @@
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 15:08:22 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/11/15 18:03:44 by hben-laz         ###   ########.fr       */
+/*   Updated: 2023/11/16 19:49:58 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
@@ -22,7 +20,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	i = 0;
 	j = 0;
 	if (dst == NULL && dstsize == 0)
-		return (strlen(src));
+		return (ft_strlen(src));
 	while (dst[i] != '\0' && i < dstsize)
 		i++;
 	while (src[j] != '\0' && ((i + j + 1) < dstsize))
@@ -35,10 +33,4 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	while (src[j] != '\0')
 		j++;
 	return (i + j);
-}
-int main()
-{
-	char	*dst = NULL;
-	printf("%zu", ft_strlcat(dst, "hamza", 0));
-	return (0);
 }
