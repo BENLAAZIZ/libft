@@ -6,7 +6,7 @@
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:05:22 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/11/16 19:39:27 by hben-laz         ###   ########.fr       */
+/*   Updated: 2023/11/18 19:55:40 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,12 @@
 int	ft_atoi(const char *str)
 {
 	int				i;
-    unsigned long	f;
+	unsigned long	f;
 	int				s;
 
 	i = 0;
 	f = 0;
 	s = 1;
-	
 	while ((*(str + i) >= 9 && *(str + i) <= 13) || *(str + i) == 32)
 		i++;
 	if (*(str + i) == '+' || *(str + i) == '-')
@@ -33,10 +32,10 @@ int	ft_atoi(const char *str)
 	while (*(str + i) >= '0' && *(str + i) <= '9')
 	{
 		f = (f * 10) + (*(str + i)) - '0';
-			if (f >= 9223372036854775807 && s == 1 )
-				return (-1);
-			if (f > 9223372036854775807 && s == -1)
-				return (0);
+		if (f >= 9223372036854775807 && s == 1)
+			return (-1);
+		if (f > 9223372036854775807 && s == -1)
+			return (0);
 		i++;
 	}
 	return ((int)f * s);

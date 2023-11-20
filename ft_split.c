@@ -6,7 +6,7 @@
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 22:21:22 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/11/18 18:59:59 by hben-laz         ###   ########.fr       */
+/*   Updated: 2023/11/19 12:07:32 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,22 +95,12 @@ char	**ft_split(char const *s, char c)
 {
 	char	**array;
 	int		nbr_wrd;
-
+	
+	if (s == NULL)
+		return (NULL);
 	nbr_wrd = count_word(s, c);
 	array = (char **)malloc(sizeof(char *) * (nbr_wrd + 1));
 	if (array == NULL)
 		return (NULL);
 	return (my_array(array, s, c, nbr_wrd));
 }
-// int main()
-// {
-//     int n;
-//     const char *s = "----h--amza--nkin--ben--laazziz";
-//     char **array= ft_split(s,'-');
-//     while(*array)
-//     {
-//     printf("%s\n", *array);
-//     array++;
-
-//     }
-// }

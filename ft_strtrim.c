@@ -6,15 +6,15 @@
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:00:23 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/11/15 15:27:01 by hben-laz         ###   ########.fr       */
+/*   Updated: 2023/11/19 19:23:37 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	chek_set(char const *set, char c )
+static int	chek_set(char const *set, char c)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (set[i])
@@ -30,25 +30,31 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	len_s1;
-	size_t	len_tab;
 	size_t	j;
 	char	*tab;
 
-	if (set == NULL || s1 == NULL)
-		return (ft_strdup((char *)s1));
-	len_s1 = ft_strlen(s1) - 1;
-	while (len_s1 > 0 && chek_set(set, s1[len_s1]))
+	if (s1 == NULL) 
+		return (NULL);
+	if (set == NULL)
+		return (ft_strdup(s1));
+	len_s1 = ft_strlen(s1);
+	while (len_s1 > 0 && chek_set(set, s1[len_s1 - 1]))
 		len_s1--;
 	i = 0;
-	while (i < len_s1 + 1 && chek_set(set, s1[i]))
+	while (s1[i] != '\0' && chek_set(set, s1[i]))
 		i++;
-	len_tab = len_s1 - i + 1;
-	tab = (char *)malloc(len_tab + 1);
+	j = len_s1 - i + 1;
+	tab = (char *)malloc(j + 1);
 	if (tab == NULL)
 		return (NULL);
 	j = 0;
-	while (i < len_s1 + 1)
+	while (i < len_s1)
 		tab[j++] = s1[i++];
 	tab[j] = '\0';
 	return (tab);
 }
+// #include <stdio.h>
+// int main()
+// {
+// 	printf("|%s|", ft_strtrim("", "sfsfs"));
+// }

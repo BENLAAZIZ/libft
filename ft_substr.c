@@ -6,7 +6,7 @@
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 19:57:38 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/11/10 15:06:42 by hben-laz         ###   ########.fr       */
+/*   Updated: 2023/11/19 10:56:46 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	char	*substr;
 
-	s_len = ft_strlen(s);
 	i = 0;
 	if (s == NULL)
 		return (NULL);
+	s_len = ft_strlen(s);
 	if (start >= s_len)
 		return (ft_strdup(""));
 	substr_len = len;
