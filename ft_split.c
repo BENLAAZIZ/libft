@@ -6,7 +6,7 @@
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 22:21:22 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/11/19 12:07:32 by hben-laz         ###   ########.fr       */
+/*   Updated: 2023/11/21 12:01:43 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,16 @@ static int	count_word(const char *s, char c)
 
 	len = 0;
 	i = 0;
-	if (s[0] == c)
-		i++;
-	else
-		len++;
 	while (s[i] != '\0')
 	{
-		if (s[i - 1] == c && s[i] != c)
+		if (s[i] != c)
+		{
 			len++;
-		i++;
+			while (s[i] != c && s[i] != '\0')
+				i++;
+		}
+		else
+			i++;
 	}
 	return (len);
 }
@@ -95,7 +96,7 @@ char	**ft_split(char const *s, char c)
 {
 	char	**array;
 	int		nbr_wrd;
-	
+
 	if (s == NULL)
 		return (NULL);
 	nbr_wrd = count_word(s, c);
