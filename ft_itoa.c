@@ -6,7 +6,7 @@
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:47:31 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/11/14 21:53:06 by hben-laz         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:22:09 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ static int	len_nbr(int n)
 	int	len;
 
 	len = 0;
-	if (n == 0)
-		return (1);
 	while (n)
 	{
 		n /= 10;
@@ -41,11 +39,12 @@ static int	sign(int n)
 
 char	*ft_itoa(int n)
 {
-	char		*string;
-	int			size;
-	long long	l;
+	char	*string;
+	int		size;
+	long	l;
 
-	l = (long long)n;
+	if (n == 0)
+		return (ft_strdup("0"));
 	size = sign(n);
 	string = (char *)malloc(sizeof(char) * (size + 1));
 	if (string == NULL)
@@ -54,12 +53,10 @@ char	*ft_itoa(int n)
 	if (n < 0)
 	{
 		string[0] = '-';
-		l = (long long)n * -1;
+		l = (long)n * -1;
 	}
 	else if (n > 0)
-		string[size] = '\0';
-	else
-		string[0] = 48;
+		l = (long)n;
 	while (size && l)
 	{
 		string[--size] = l % 10 + '0';

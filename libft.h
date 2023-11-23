@@ -6,7 +6,7 @@
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 20:55:15 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/11/16 16:46:06 by hben-laz         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:08:06 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stddef.h>
 # include <stdio.h>
 # include <string.h>
-# include <stdlib.h>
+# include <stdlib.h> 
 
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);

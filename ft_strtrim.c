@@ -6,7 +6,7 @@
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:00:23 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/11/21 12:06:38 by hben-laz         ###   ########.fr       */
+/*   Updated: 2023/11/23 16:00:09 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (ft_strdup(s1));
 	len_s1 = ft_strlen(s1);
 	i = 0;
-	while (s1[i] != '\0' && chek_set(set, s1[i]))
+	while (s1[i] && chek_set(set, s1[i]))
 		i++;
 	if (i == len_s1)
 		return (ft_strdup(""));

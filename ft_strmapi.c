@@ -6,7 +6,7 @@
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:04:20 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/11/10 15:34:10 by hben-laz         ###   ########.fr       */
+/*   Updated: 2023/11/23 12:12:22 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*tab;
 
 	i = 0;
+	if (s == NULL || f == NULL)
+		return (NULL);
 	tab = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (tab == 0)
 		return (0);

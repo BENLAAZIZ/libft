@@ -6,7 +6,7 @@
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:28:27 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/11/15 11:57:08 by hben-laz         ###   ########.fr       */
+/*   Updated: 2023/11/23 17:02:50 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,3 +18,12 @@ void	ft_putchar_fd(char c, int fd)
 		return ;
 	write(fd, &c, 1);
 }
+// #include <stdio.h>
+// #include <fcntl.h>
+
+// int main ()
+// {
+// 	int fd = 1;
+// 	ft_putchar_fd('c', fd);
+// 	printf("\n%d", fd);
+// }

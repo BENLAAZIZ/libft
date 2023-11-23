@@ -6,7 +6,7 @@
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 22:21:22 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/11/21 12:01:43 by hben-laz         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:06:20 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ static char	*charge_word(const char *s, int start, int end)
 	char	*ptr;
 
 	i = 0;
-	size = end - start;
-	ptr = malloc(size + 1);
+	size = (end - start);
+	ptr = (char *)malloc(sizeof(char) * (size + 1));
 	if (ptr == NULL)
 		return (NULL);
 	while (i < size)
@@ -83,7 +83,7 @@ char	**my_array(char **array, char const *s, char c, int nbr_word)
 		array[i] = charge_word(s, j, end);
 		if (array[i] == NULL)
 		{
-			free_function(&array[i], i);
+			free_function(array, i);
 			return (0);
 		}
 		j = end;
@@ -105,3 +105,21 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (my_array(array, s, c, nbr_wrd));
 }
+
+// #include <stdio.h>
+// int main(void)
+// {
+//     // Test string
+//     const char *test_string = "^^^^3^^^^--h^^^^";
+
+//     // Call ft_split to split the string based on space (' ')
+//     char **result = ft_split(test_string, '^');
+
+// 	int i = 0;
+// 	while (result[i] != NULL)
+// 	{
+// 		printf("%s\n", result[i]);
+// 		i++;
+// 	}
+// return 0;
+// }

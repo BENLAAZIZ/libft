@@ -1,8 +1,8 @@
-NAME=libft.a
+NAME = libft.a
 
-CC=cc
+CC = cc
 
-CFLAGS=-Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 RM=rm -f
 
@@ -15,13 +15,13 @@ SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen
 
 OBJ = $(SRC:.c=.o)
 
-$(NAME): $(OBJ)
-		 ar rc $(NAME) $(OBJ)
-
-%.o: %.c
-		$(CC) $(CFLAGS)  -o $@ -c $<
-
 all: $(NAME)
+
+$(NAME): $(OBJ)
+		ar rc $(NAME) $(OBJ)
+
+%.o: %.c libft.h
+		$(CC) $(CFLAGS)  -o $@ -c $<
 
 clean:
 		$(RM) $(OBJ)

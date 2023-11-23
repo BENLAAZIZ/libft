@@ -6,7 +6,7 @@
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 18:41:39 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/11/15 15:26:06 by hben-laz         ###   ########.fr       */
+/*   Updated: 2023/11/23 12:53:43 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memcpy(void	*dst, const void *src, size_t n)
 	size_t			i;
 
 	i = 0;
+	if (n == 0)
+		return (dst);
 	ptr = (unsigned char *)dst;
 	c = (unsigned char *)src;
 	if (ptr == NULL && c == NULL)
